@@ -33,14 +33,24 @@ df = pd.get_dummies(df)
 df.sample(10)
 # %% 
 # separate the features and labels
-
+y = df['survived']
+X = df.drop(columns=['survived'])
 # %%
 # train-test split
-
+import numpy as np
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+print('X_train: {}'.format(np.shape(X_train)))
+print('X_test: {}'.format(np.shape(X_test)))
+print('y_train: {}'.format(np.shape(y_train)))
+print('y_test: {}'.format(np.shape(y_test)))
 # %%
 # build model
 # build three classification models
 # SVM, KNN, Random Forest
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression()
+reg.fit(X_train, y_train)
 
 # %%
 # predict and evaluate
