@@ -1,0 +1,1 @@
+day3/assignment/data/household_power_consumption/household_power_consumption.csv filter=lfs diff=lfs merge=lfs -text
